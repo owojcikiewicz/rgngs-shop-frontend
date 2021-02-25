@@ -6,8 +6,7 @@ import Logo from "./assets/logo.png";
 
 class Header extends React.Component {
 
-    showMenu() {
-    
+    showMenu() {   
         
     };
 

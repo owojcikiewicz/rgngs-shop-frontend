@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Header from "./components/header/header";
+import Item from "./components/item/item";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header/>
     <App />
+    <Item />
   </React.StrictMode>,
   document.getElementById('root')
 );
