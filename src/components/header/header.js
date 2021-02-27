@@ -5,15 +5,24 @@ import Steam from "./assets/steam.png";
 import Logo from "./assets/logo.png";
 
 class Header extends React.Component {
-
-    showMenu() {   
+    constructor(props) {
+        super(props);
         
-    };
+        this.state = {clicked: false};
+        this.sidebarMenu = React.createRef();
+        this.showSidebarMenu = this.showSidebarMenu.bind(this);
+    
+    }
+
+      
+    showSidebarMenu() {
+    
+    }
 
     render() {  
         return (
          <div class="header">
-             <button class="hamburger-menu" onClick={this.showMenu}>
+             <button class="hamburger-menu" onClick={this.showSidebarMenu}>
                 <img class="hamburger-menu-img" src={Menu} alt="Menu"></img>
              </button>
 
@@ -22,7 +31,13 @@ class Header extends React.Component {
                 <label class="steam-login-text">ZALOGUJ</label>
              </button>
              <img class="rgngs-logo" src={Logo} alt="Logo"></img>
-             
+             <div class="header-menu" ref={this.sidebarMenu}>
+                 <ul>
+                    <li><a href="#">SKLEP</a></li>
+                    <li><a href="#">REGULAMIN</a></li>
+                    <li><a href="#">INFORMACJE</a></li>
+                 </ul>
+             </div>
             
          </div>
         )
