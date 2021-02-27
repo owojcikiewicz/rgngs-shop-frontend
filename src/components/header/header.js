@@ -11,13 +11,15 @@ class Header extends React.Component {
         this.state = {clicked: false};
         this.sidebarMenu = React.createRef();
         this.showSidebarMenu = this.showSidebarMenu.bind(this);
+    };
     
-    }
-
-      
     showSidebarMenu() {
-    
-    }
+        this.setState(state => {
+            return {clicked: !state.clicked};
+        });
+
+        console.log(this.state.clicked);
+    };
 
     render() {  
         return (
