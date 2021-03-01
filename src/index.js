@@ -4,11 +4,9 @@ import App from './App';
 import Item from "./components/item/item";
 
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-    <Item />
-  </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.render (
+ <React.StrictMode>
+  <App/>
+ </React.StrictMode>,
+ document.getElementById('root')
 );
-

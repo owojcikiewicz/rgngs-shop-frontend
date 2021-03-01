@@ -1,80 +1,118 @@
-
-
 /* MAIN */
-.header{
-    position: relative;
-    display: flex;
-    background-color: var(--header);
-    height: 65px;
+.header {
+  position: relative;
+  display: flex;
+  background-color: var(--header);
+  height: 65px;
 }
-
-
-
 
 /* STEAM LOGIN */
-.login-btn{
-    position: absolute;
-    color: var(--text);
-    right: 10px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: var(--primary);
-    transition: 0.5s;
-    width: 140px;
-    height: 48px;
-    top: 50%;
-    border-radius: 8px;
-    transform: translateY(-50%);
+.login-btn {
+  position: absolute;
+  color: var(--text);
+  right: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary);
+  transition: 0.5s;
+  width: 140px;
+  height: 48px;
+  top: 50%;
+  border-radius: 8px;
+  transform: translateY(-50%);
 }
 
-.steam-login-img{
-    position: absolute;
-    top: 50%;
-    left: 8px;
-    transform: translateY(-50%);
+.steam-login-img {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
 }
 
-.steam-login-text{
-    position: absolute;
-    font-size: 1rem;
-    font-weight: 600;
-    top: 50%;   
-    left: 50px;
-    transform: translateY(-50%);
+.steam-login-text {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 600;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
 }
 
-.login-btn:hover{
-    background-color: var(--secondary);
-    color: var(--accent);
-    transition: 0.5s;
+.login-btn:hover {
+  background-color: var(--secondary);
+  color: var(--accent);
+  transition: 0.5s;
 }
 
 /* LOGO */
 
-.rgngs-logo{
-    position: absolute;
-    height: 100px;
-    top: 50%;
-    width: 450px;
-    left: 50%;
-    transform: translate(-50%, -50%);
- 
+.rgngs-logo {
+  position: absolute;
+  height: 100px;
+  top: 50%;
+  width: 450px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
 
 /* HAMBURGER MENU */
-.hamburger-menu{
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    cursor: pointer;
-    background-color: rgba(0,0,0,0);
-    outline: none;
-    border: none;
-    transform: translateY(-50%);
+.hamburger-menu {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: none;
+  transform: translateY(-50%);
 }
 
-.header-menu{
-    display: none;
+.header-menu {
+  position: absolute;
+  background-color: var(--primary);
+  left: -200px;
+  width: 200px;
+  top: 65px;
+  transition: 350ms;  
+  z-index: 1;
+}
+
+.header-menu.active {
+  left: 0;
+  box-shadow: 3px 3px 3px var(--background);
+  transition: 350ms;
+}
+
+.headerMenuList{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.headerMenuList li{
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase ;
+  padding: 15px 5px 15px 5px;
+  transition: 350ms;
+  font-size:  1.5rem;
+  border-bottom: 1px solid var(--header);
+
+}
+
+.headerMenuList li:last-child{
+  border-bottom: none;
+}
+
+.headerMenuList li:hover{
+  background-color: var(--secondary);
+  color: var(--accent2);
+  cursor: pointer;
+  transition: 350ms;
 }
