@@ -46,73 +46,11 @@
 }
 
 /* LOGO */
-
 .rgngs-logo {
   position: absolute;
-  height: 100px;
+  height: 80px;
   top: 50%;
-  width: 450px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* HAMBURGER MENU */
-.hamburger-menu {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  outline: none;
-  border: none;
+  left: 5px;
+  width: 300px;
   transform: translateY(-50%);
-}
-
-.header-menu {
-  position: absolute;
-  background-color: var(--primary);
-  left: -200px;
-  width: 200px;
-  top: 65px;
-  transition: 350ms;  
-  z-index: 1;
-}
-
-.header-menu.active {
-  left: 0;
-  box-shadow: 3px 3px 3px var(--background);
-  transition: 350ms;
-}
-
-.headerMenuList{
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.headerMenuList li{
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase ;
-  padding: 15px 5px 15px 5px;
-  transition: 350ms;
-  font-size:  1.5rem;
-  border-bottom: 1px solid var(--header);
-
-}
-
-.headerMenuList li:last-child{
-  border-bottom: none;
-}
-
-.headerMenuList li:hover{
-  background-color: var(--secondary);
-  color: var(--accent2);
-  cursor: pointer;
-  transition: 350ms;
 }

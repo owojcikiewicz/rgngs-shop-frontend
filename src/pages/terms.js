@@ -1,11 +1,13 @@
 import React from 'react';
 
-function Shop() {
+class Terms extends React.Component {
+  render() {
   return (
     <div className='home'>
-      <h1>Home</h1>
+  
     </div>
   );
+  }
 }
 
-export default Shop;
+export default Terms;
