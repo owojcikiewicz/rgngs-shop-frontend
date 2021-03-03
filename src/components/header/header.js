@@ -6,13 +6,13 @@ import Logo from "../../assets/logo.png";
 class Header extends React.Component {
  render() {
   return (
-  <div class="header">
+  <header class="header">
     <button class="login-btn">
      <img class="steam-login-img" src={Steam} alt="Steam"></img>
      <label class="steam-login-text">ZALOGUJ</label>
     </button>
     <img class="rgngs-logo" src={Logo} alt="Logo"></img>
-  </div>
+  </header>
   )
  }
 }

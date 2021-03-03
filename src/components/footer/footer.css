@@ -1,76 +1,92 @@
 
 /* MAIN CODE */
  .footer {
-  position: fixed;
   display: flex;
-  left: 0;
-  bottom: 0;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  top: 100vh;
+  padding: 10px;
   height: 80px;
-  width: 100vw;
+  width: 100%;
   background-color: var(--secondary);
   color: white;
   text-align: center;
  }
 
- .footer-container{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 98%;
-  height: 90% ;
-
- }
 
 /* LOGO */
- .footer-logo{
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 64px;
-  height: 35px;
-  transform: translateY(-50%);
- }
-
-/* LINKS */ 
- .footer-links{
-  position: absolute;
-  top: 50%;
-  right: 0;
-  text-transform: uppercase;
+.footer-logo-container{
   display: flex;
-  transform: translateY(-50%);
- }
-
- .footer-links li{
-  list-style: none;
-  margin-right: 15px;
- }
-
- .footer-links li:last-child {
- margin-right: 0;
- }
-
- .footer-links li a {
-  font-size: 1em;
-  text-decoration: none;
-  color: white;
- }
- .footer-links li a:hover {
-  color: var(--accent);
- }
-
-
-/* INFO */
- .footer-info{
-  position:absolute;
-  left: 50%;
   width: 30%;
-  top: 50%;
-  transform: translate(-50%,-50%);
- }
- .footer-info-text{
-  display: block;
+  height: auto;
+  align-items: center;
+  justify-content: flex-start;
+}
+.footer-logo{
+  margin-left: 15px;
+}
+/* INFO */
+.footer-info-container{
+  display: flex;
+  height: auto;
   color: var(--text2);
-  font-size: 0.7em;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 5px 5px 5px;
+  width: 50%;
+  font-size: 1rem;
+}
+
+/* LINKS */
+.footer-links-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 30%;
  }
+
+.footer-links-container li{
+  list-style: none;
+  margin-right: 10px;
+}
+
+.footer-links-container li a{
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.footer-links-container li a:hover{
+  color: var(--accent);
+}
+
+
+ @media screen and (max-width: 1100px){
+  .footer{
+    flex-direction: column;
+    height: auto;
+  }
+  .footer-info-container{
+    margin-top: 20px;
+    width: auto;
+  }
+  .footer-logo-container{
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-links-container{
+    margin-top: 20px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+

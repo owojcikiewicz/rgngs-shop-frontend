@@ -1,10 +1,11 @@
 import React from 'react';
+import "./privacy.css"
 
 class Privacy extends React.Component {
   render() {
   return (
-    <div className='home'>
-      Privacy
+    <div class='asd'>
+      asd
     </div>
   );
   }

@@ -14,7 +14,7 @@ class App extends React.Component {
       <>
      <Header/>
      <Router>
-        <Footer/>
+      <Footer/>
         <Switch>
           <Route path='/privacy' component={Privacy} />
           <Route path='/terms' component={Terms} />
