@@ -1,6 +1,5 @@
-.asd{
- 
- background-color: aqua;
- height: 100vh;
+.privacy{
+ height: calc(100vh - 65px);
  width: 100%;
+ z-index: 1;
 }

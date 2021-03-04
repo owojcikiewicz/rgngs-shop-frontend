@@ -12,6 +12,7 @@ class Footer extends React.Component {
           <div class="footer-logo-container"><img class="footer-logo" src={Logo2}></img></div>
           <div class="footer-info-container">Thriving Ventures AB trading as Monolith Servers is registered in Stockholm, Sweden (559122-7755). Copyright 2020 All rights reserved. All trademarks and registered trademarks are the property of their respective owners.</div>
           <div class="footer-links-container">
+          <a href="https://discord.gg/QHDg97vZ" target="_blank">DISCORD</a>
           {footerRoutes.map((val, key) =>{
               return (
                 <li key={key} >

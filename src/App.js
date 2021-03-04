@@ -14,11 +14,11 @@ class App extends React.Component {
       <>
      <Header/>
      <Router>
-      <Footer/>
         <Switch>
           <Route path='/privacy' component={Privacy} />
           <Route path='/terms' component={Terms} />
         </Switch>
+        <Footer/>
       </Router>
     </>
     )

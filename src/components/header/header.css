@@ -2,6 +2,7 @@
 .header {
   position: relative;
   display: flex;
+  z-index: 2;
   background-color: var(--header);
   height: 65px;
 }

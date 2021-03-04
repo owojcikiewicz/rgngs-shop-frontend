@@ -1,12 +1,13 @@
 
 /* MAIN CODE */
  .footer {
+  z-index: 1;
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  top: 100vh;
+  bottom: auto;
   padding: 10px;
   height: 80px;
   width: 100%;
@@ -49,12 +50,12 @@
   width: 30%;
  }
 
-.footer-links-container li{
+.footer-links-container li,a{
   list-style: none;
   margin-right: 10px;
 }
 
-.footer-links-container li a{
+.footer-links-container li a, a{
   color: var(--text);
   text-decoration: none;
   font-size: 1rem;
@@ -62,6 +63,10 @@
 }
 
 .footer-links-container li a:hover{
+  color: var(--accent);
+}
+
+.footer-links-container  a:hover{
   color: var(--accent);
 }
 

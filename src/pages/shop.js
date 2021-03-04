@@ -1,7 +1,7 @@
 import React from 'react';
-import "./privacy.css"
+import "./shop.css"
 
-class Privacy extends React.Component {
+class Shop extends React.Component {
   render() {
   return (
     <div class="privacy">Elo elo</div>
@@ -9,4 +9,4 @@ class Privacy extends React.Component {
   }
 }
 
-export default Privacy;
+export default Shop;
