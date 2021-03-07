@@ -1,0 +1,46 @@
+.shop-container{
+ min-height: calc(100vh - 64px);
+ width: 100%;
+
+}
+.shop-text-container{
+ margin-bottom: 20px;
+ text-align: center
+}
+
+.shop-text-container h2{
+ font-weight: 100;
+ font-size: 2.5rem;
+}
+
+.shop-desccription{
+ position: relative;
+ width: 40%;
+ left: 50%;
+ transform: translateX(-50%);
+ height: auto;
+ color: var(--text2);
+}
+
+.items-container{
+ margin-bottom: 30px;
+ position: relative;
+ display: grid;
+ left: 50%;
+ transform: translateX(-50%);
+ grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+ row-gap: 50px;
+ align-content: center;
+ justify-items: center;
+ justify-content: space-between;
+}
+
+
+@media screen and (max-width: 500px){
+ .items-container{
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+ }
+}
+

@@ -4,7 +4,7 @@ import "./terms.css"
 class Terms extends React.Component {
   render() {
   return (
-    <div className='terms-main'>
+    <div class='terms-main'>
       <h1 class="terms-main-text">REGULAMIN</h1>
         <h2>I. Something</h2>
         <ul>
@@ -15,6 +15,10 @@ class Terms extends React.Component {
         </ul>
         <h2>II. Something</h2>
         <ul>
+          <li>Jakis punkt</li>
+          <li>Jakis punkt</li>
+          <li>Jakis punkt</li>
+          <li>Jakis punkt</li>
           <li>Jakis punkt</li>
           <li>Jakis punkt</li>
           <li>Jakis punkt</li>

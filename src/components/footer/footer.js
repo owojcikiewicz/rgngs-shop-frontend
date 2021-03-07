@@ -9,10 +9,10 @@ class Footer extends React.Component {
   render() {
     return (
       <footer class="footer">
-          <div class="footer-logo-container"><img class="footer-logo" src={Logo2}></img></div>
+          <div class="footer-logo-container"><img class="footer-logo" src={Logo2} alt={"RageGANGS"}></img></div>
           <div class="footer-info-container">Thriving Ventures AB trading as Monolith Servers is registered in Stockholm, Sweden (559122-7755). Copyright 2020 All rights reserved. All trademarks and registered trademarks are the property of their respective owners.</div>
           <div class="footer-links-container">
-          <a href="https://discord.gg/QHDg97vZ" target="_blank">DISCORD</a>
+            <a href="https://www.youtube.com" rel="noopener">Discord</a>
           {footerRoutes.map((val, key) =>{
               return (
                 <li key={key} >

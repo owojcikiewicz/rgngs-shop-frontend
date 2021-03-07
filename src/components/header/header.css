@@ -55,3 +55,11 @@
   width: 300px;
   transform: translateY(-50%);
 }
+
+@media screen and (max-width: 400px){
+  .rgngs-logo{
+    height: 60px;
+    width: 200px;
+  }
+}
+

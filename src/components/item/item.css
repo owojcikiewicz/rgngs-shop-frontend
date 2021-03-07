@@ -3,8 +3,7 @@
     background-color: var(--secondary);
     border-radius: 8px;
     width: 450px;
-    height: 550px;
-    margin: 10px 10px;
+    height: 520px;
 }
 
 .item-header{
@@ -16,12 +15,13 @@
     border-top-left-radius: 8px;
 }
 
-.item-titel{
+.item-title{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    font-size: 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
 }
 
 .item-button{
@@ -41,7 +41,7 @@
 
 .item-button:hover{
     cursor: pointer;
-    background: linear-gradient(to right, rgb(206, 75, 116), rgb(31, 40, 122));
+
 }
 
 .item-price-div{
@@ -57,7 +57,7 @@
     padding-top: 15px;
     top: 50%;
     transform: translate(-50%,-50%);
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .item-content{
@@ -89,3 +89,14 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--hover);
   }
+
+  @media screen and (max-width: 500px){
+    .item-main{
+     width: 250px;
+    }
+
+    .item-price{
+        font-size: 1.5em;
+    }
+   }
+   

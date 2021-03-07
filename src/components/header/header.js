@@ -11,7 +11,8 @@ class Header extends React.Component {
      <img class="steam-login-img" src={Steam} alt="Steam"></img>
      <label class="steam-login-text">ZALOGUJ</label>
     </button>
-    <img class="rgngs-logo" src={Logo} alt="Logo"></img>
+    <img class="rgngs-logo" src={Logo} alt="Logo" ></img>
+
   </header>
   )
  }

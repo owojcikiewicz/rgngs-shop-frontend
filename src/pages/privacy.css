@@ -1,5 +1,36 @@
-.privacy{
- height: calc(100vh - 65px);
- width: 100%;
+
+.privacy-main{
+ min-width: 400px;
+ position: relative;
  z-index: 1;
+ margin: 15px 0 15px 0px;
+ padding: 15px 5px 15px 5px;
+ border-radius: 12px;
+ left: 50%;
+ background-color: var(--primary);
+ min-height: calc(100vh - 65px);
+ width: 70%;
+ transform: translateX(-50%);
+}
+.privacy-main-text{
+ font-size: 2.5em;
+ text-align: center;
+ color: var(--accent2);
+
+}
+.privacy-main h2{
+ padding: 0;
+ margin: 0;
+ display: block;
+ color: var(--text);
+ font-size: 2em;
+}
+
+.privacy-main  li{
+ margin-top: 15px;
+ color: var(--text2);
+}
+
+.privacy-main  li:first-child{
+ margin-top: 0;
 }
