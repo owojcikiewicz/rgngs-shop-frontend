@@ -9,7 +9,7 @@ class Shop extends React.Component {
       <div class="shop-container">
         <div class="shop-text-container">
           <h2>NASZA OFERTA</h2>
-          <div class="shop-desccription">U nas zakupisz se cos tam scos tam i wgl jakis tekst</div>
+          <div class="shop-desccription">U nas zakupisz se cos tam scos tam i wgl jakis </div>
         </div>
         <div class="items-container">
           {itemsData.map((val, key) => {

@@ -2,6 +2,7 @@ import React from "react";
 import "./header.css"
 import Steam from "../../assets/steam.png";
 import Logo from "../../assets/logo.png";
+import {Link} from "react-router-dom";
 
 class Header extends React.Component {
  render() {
@@ -11,7 +12,8 @@ class Header extends React.Component {
      <img class="steam-login-img" src={Steam} alt="Steam"></img>
      <label class="steam-login-text">ZALOGUJ</label>
     </button>
-    <img class="rgngs-logo" src={Logo} alt="Logo" ></img>
+    <Link to={"/shop"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
+    
 
   </header>
   )

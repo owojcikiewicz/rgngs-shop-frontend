@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <>
      <Router basename="/asd">
-      <Header/>
+      <Header/> 
         <Switch>
           <Route path='/shop' component={Shop} />
           <Route path='/privacy' component={Privacy} />
