@@ -10,7 +10,7 @@ class Footer extends React.Component {
     return (
       <footer class="footer">
           <div class="footer-logo-container"><img class="footer-logo" src={Logo2} alt={"RageGANGS"}></img></div>
-          <div class="footer-info-container">Thriving Ventures AB trading as Monolith Servers is registered in Stockholm, Sweden (559122-7755). Copyright 2020 All rights reserved. All trademarks and registered trademarks are the property of their respective owners.</div>
+          <div class="footer-info-container">Rage Gangs.pl - Sklep prowadzony jest przez: FUNDACJĘ ROZWOJU PRZEDSIĘBIORCZOŚCI „TWÓJ STARTUP”, KRS: 0000442857; NIP: 5213641211; REGON: 146433467, BDO: 000460502</div>
           <div class="footer-links-container">
             <a href="https://www.youtube.com" rel="noopener">Discord</a>
           {footerRoutes.map((val, key) =>{
