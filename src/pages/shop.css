@@ -4,12 +4,13 @@
 
 }
 .shop-text-container{
- margin-bottom: 20px;
+ margin-bottom: 30px;
  text-align: center
 }
 
 .shop-text-container h2{
- font-weight: 100;
+ font-weight: 500;
+ margin-bottom: 5px;
  font-size: 2.5rem;
 }
 
