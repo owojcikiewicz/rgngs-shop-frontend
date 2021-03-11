@@ -16,6 +16,7 @@ class App extends React.Component {
      <Router basename="/asd">
       <Header/> 
         <Switch>
+         
           <Route path='/shop' component={Shop} />
           <Route path='/privacy' component={Privacy} />
           <Route path='/terms' component={Terms} />
