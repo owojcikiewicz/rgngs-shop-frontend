@@ -1,4 +1,6 @@
 import React from 'react';
+import {TextInput, CheckBox} from "../../components/textinput/textinput"
+
 import "./terms.css"
 
 class Terms extends React.Component {

@@ -1,6 +1,6 @@
 import React from "react";
-import Item from "../components/item/item";
-import itemsData from "../components/item/itemsData";
+import Item from "../../components/item/item";
+import itemsData from "../../components/item/itemsData";
 import "./shop.css";
 
 class Shop extends React.Component {

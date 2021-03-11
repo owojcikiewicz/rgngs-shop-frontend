@@ -7,7 +7,7 @@
  padding: 15px 5px 15px 5px;
  border-radius: 12px;
  left: 50%;
- background-color: var(--primary);
+ background-color: var(--secondary);
  min-height: calc(100vh - 65px);
  width: 70%;
  transform: translateX(-50%);
@@ -16,8 +16,8 @@
  font-size: 2.5em;
  text-align: center;
  color: var(--accent2);
-
 }
+
 .privacy-main h2{
  padding: 0;
  margin: 0;

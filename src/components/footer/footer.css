@@ -12,6 +12,7 @@
   height: 80px;
   width: 100%;
   background-color: var(--secondary);
+  border-top: solid 2px var(--accent);
   color: white;
   text-align: center;
  }
@@ -37,7 +38,7 @@
   justify-content: center;
   margin: 5px 5px 5px 5px;
   width: 50%;
-  font-size: 1rem;
+  font-size: 0.9em;
 }
 
 /* LINKS */

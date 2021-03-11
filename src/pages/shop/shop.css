@@ -1,8 +1,8 @@
 .shop-container{
  min-height: calc(100vh - 64px);
  width: 100%;
-
 }
+
 .shop-text-container{
  margin-bottom: 30px;
  text-align: center
