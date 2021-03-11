@@ -1,11 +1,11 @@
 import React from 'react';
 import "./app.css";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer"
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Shop from "./pages/shop"
-import Privacy from "./pages/privacy"
-import Terms from "./pages/terms"
+import Shop from "./pages/shop/shop"
+import Privacy from "./pages/privacy/privacy"
+import Terms from "./pages/terms/terms"
 
 
 
