@@ -3,6 +3,12 @@ import React from "react";
  
 const footerRoutes = [
   {
+    title: "Discord",
+    link: "/discord"
+
+  },
+
+  {
     title: "Polityka prywatności",
     link: "/privacy"
 

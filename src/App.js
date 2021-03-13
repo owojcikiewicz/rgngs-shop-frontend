@@ -18,7 +18,7 @@ class App extends React.Component {
       <Header/> 
         <Switch>
           <Route path='/shop' component={Shop} />
-          <Route path='/forms' component={Froms} />
+          <Route path='/forms' component={Froms}/>
           <Route path='/privacy' component={Privacy} />
           <Route path='/terms' component={Terms} />
         </Switch>
