@@ -1,9 +1,8 @@
 import React from "react";
 import "./footer.css"
 import Logo2 from "../../assets/logo2.png";
-import Logo from "../../assets/logo.png";
 import footerRoutes from "./footerData"
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class Footer extends React.Component {
   render() {

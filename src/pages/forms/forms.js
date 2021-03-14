@@ -1,20 +1,72 @@
 import React from "react";
-import {TextInput, CheckBox} from "../../components/textinput/textinput"
 import "./forms.css";
 
 class Froms extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nameInput: "",
+      surnameInput: "",
+      adressInput: "",
+      emailInput: "",
+      acceptTerms: false,
+      acceptPurchase: false
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+
+    console.log(this.state)
+    event.preventDefault();
+  }
   render() {
     return (
       <div class="forms-container">
-       <h1 class="forms-main-text">JAKIS TEKST</h1>
-       <form class="main-form">
-        <TextInput title="Imię" placeholder="Wpisz swoje imię"/>
-        <TextInput title="Nazwisko" placeholder="Wpisz swoje nazwisko"/>
-        <TextInput title="Email" placeholder="Wpisz swój adres email"/>
-        <TextInput title="Adres" placeholder="Wpisz swój adres zamieszkania"/>
+       <h1 class="forms-main-text">ZAMÓWIENIE</h1>
+       <form class="main-form" onSubmit={this.handleSubmit}>
+       
+        <div class="input-container">
+          <label class="input-label">Imie</label>
+          <input class="input-space" name="nameInput" type="text" placeholder="Wpisz swoje imie" value={this.state.nameInput} onChange={this.handleChange}/>
+        </div>
 
-        <CheckBox text="Akcpetuję regulamin i politykę prywatności"/>
-        <CheckBox text="Zamawiam z obowiązkiem zapłaty"/>
+        <div class="input-container">
+          <label class="input-label">Nazwisko</label>
+          <input class="input-space" name="surnameInput" type="text" placeholder="Wpisz swoje nazwisko" value={this.state.surnameInput} onChange={this.handleChange} />
+        </div>
+
+        <div class="input-container">
+          <label class="input-label">Adres zamieszkania</label>
+          <input class="input-space" name="adressInput" type="text" placeholder="Wpisz swój adres zamieszkania" value={this.state.adressInput} onChange={this.handleChange} />
+        </div>
+
+        <div class="input-container">
+          <label class="input-label">Email</label>
+          <input class="input-space" name="emailInput" type="text" placeholder="Wpisz swój adres email" value={this.state.emailInput} onChange={this.handleChange} />
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" name="acceptTerms" checked={this.state.acceptTerms} onChange={this.handleChange} ></input>
+          <label for="acceptTerms">Regulamin</label>
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" name="acceptPurchase" checked={this.state.acceptPurchase} onChange={this.handleChange} ></input>
+          <label for="acceptPurchase">Zakup</label>
+        </div>
+
         <div class="forms-info">Wszystkie pola są wymagane</div>
         <div class="forms-accept-div">
          <input class="forms-accept" type="submit" value="Submit"></input>
