@@ -10,9 +10,9 @@ class Froms extends React.Component {
       adressInput: "",
       emailInput: "",
       acceptTerms: false,
+      paymentSelect:"hotpay",
       acceptPurchase: false
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,6 +26,7 @@ class Froms extends React.Component {
     });
   }
 
+
   handleSubmit(event) {
 
     console.log(this.state)
@@ -35,7 +36,7 @@ class Froms extends React.Component {
     return (
       <div class="forms-container">
        <h1 class="forms-main-text">ZAMÓWIENIE</h1>
-       <form class="main-form" onSubmit={this.handleSubmit}>
+       <form class="main-form" autocomplete="off" onSubmit={this.handleSubmit}>
        
         <div class="input-container">
           <label class="input-label">Imie</label>
@@ -57,9 +58,17 @@ class Froms extends React.Component {
           <input class="input-space" name="emailInput" type="text" placeholder="Wpisz swój adres email" value={this.state.emailInput} onChange={this.handleChange} />
         </div>
 
+        <div class="paymentContainer">
+          <label>Metody Płatności</label>
+          <select class="paymentSelect" name="paymentSelect" value={this.state.paymentSelect} onChange={this.handleChange}> 
+            <option value="hotpay">HotPay</option>
+            <option value="sms">SMS</option>
+          </select> 
+        </div>
+
         <div class="checkbox-container">
           <input type="checkbox" name="acceptTerms" checked={this.state.acceptTerms} onChange={this.handleChange} ></input>
-          <label for="acceptTerms">Regulamin</label>
+          <label for="acceptTerms">Akcpetuje Regulamin i Polityke prywatności</label>
         </div>
 
         <div class="checkbox-container">

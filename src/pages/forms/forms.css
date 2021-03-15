@@ -88,6 +88,44 @@
 	border-radius: 5px;
 }
 
+
+/* PAYMENT */
+.paymentContainer{
+	display: flex;
+	flex-direction: column;
+	
+
+}
+.paymentContainer label{
+	font-size: 1.2em;
+	margin-bottom: 15px;
+}
+
+.paymentSelect{
+	background-color: var(--input);
+	color: var(--text2);
+	height: 32px;
+	padding-left: 10px;
+	font-size: 1em;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	-webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;    
+	border-radius: 5px;
+	background-image: url("../../assets/arrow.png");
+	background-position: right 10px top 50%;
+	background-repeat: no-repeat;
+	background-size: 16px;
+}
+
+.paymentSelect:hover{
+	cursor: pointer;	
+	background-color: var(--header);
+	
+}
+
 /* CHECKBOX */
 .checkbox-container {
 	display: flex;
