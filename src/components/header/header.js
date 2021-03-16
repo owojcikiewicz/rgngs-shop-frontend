@@ -8,11 +8,11 @@ class Header extends React.Component {
  render() {
   return (
   <header class="header">
-    <button class="login-btn">
+    <a class="login-btn" href="https://www.youtube.com">
+      <label class="steam-login-text">ZALOGUJ</label>
      <img class="steam-login-img" src={Steam} alt="Steam"></img>
-     <label class="steam-login-text">ZALOGUJ</label>
-    </button>
-    <Link to={"/shop"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
+    </a>
+    <Link to={"/"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
     
 
   </header>

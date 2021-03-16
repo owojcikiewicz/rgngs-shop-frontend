@@ -9,15 +9,14 @@ import Terms from "./pages/terms/terms";
 import Froms from "./pages/forms/forms"
 
 
-
 class App extends React.Component {
   render() {
     return (
       <>
-     <Router basename="/asd">
-      <Header/> 
+     <Router>
+     <Header/> 
         <Switch>
-          <Route path='/shop' component={Shop} />
+          <Route path='/' exact component={Shop} />
           <Route path='/forms' component={Froms}/>
           <Route path='/privacy' component={Privacy} />
           <Route path='/terms' component={Terms} />

@@ -1,7 +1,8 @@
 /* MAIN */
 .header {
-  position: relative;
+  position: sticky;
   display: flex;
+  top: 0;
   z-index: 2;
   background-color: var(--header);
   height: 65px;
@@ -32,6 +33,7 @@
 }
 
 .steam-login-text {
+  pointer-events: none;
   position: absolute;
   font-size: 1rem;
   font-weight: 600;
