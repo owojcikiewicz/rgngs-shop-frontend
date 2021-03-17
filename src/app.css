@@ -3,6 +3,7 @@
 /* THEME */
 :root {
     --header: rgb(60, 61, 68);
+    --hover: rgb(70, 71, 78);
     --primary: rgb(48, 49, 54);
     --background: rgb(27,27,29);
     --input:rgb(46, 47, 51);
