@@ -19,13 +19,12 @@ class Froms extends React.Component {
 
   handleChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     this.setState({
       [name]: value
     });
   }
-
 
   handleSubmit(event) {
 
@@ -39,23 +38,23 @@ class Froms extends React.Component {
        <form class="main-form" autocomplete="off" onSubmit={this.handleSubmit}>
        
         <div class="input-container">
-          <label class="input-label">Imie</label>
-          <input class="input-space" name="nameInput" type="text" placeholder="Wpisz swoje imie" value={this.state.nameInput} onChange={this.handleChange}/>
+          <label class="input-label">Imię</label>
+          <input class="input-space" name="nameInput" type="text" placeholder="Wpisz swoje imie." value={this.state.nameInput} onChange={this.handleChange}/>
         </div>
 
         <div class="input-container">
           <label class="input-label">Nazwisko</label>
-          <input class="input-space" name="surnameInput" type="text" placeholder="Wpisz swoje nazwisko" value={this.state.surnameInput} onChange={this.handleChange} />
+          <input class="input-space" name="surnameInput" type="text" placeholder="Wpisz swoje nazwisko." value={this.state.surnameInput} onChange={this.handleChange} />
         </div>
 
         <div class="input-container">
-          <label class="input-label">Adres zamieszkania</label>
-          <input class="input-space" name="adressInput" type="text" placeholder="Wpisz swój adres zamieszkania" value={this.state.adressInput} onChange={this.handleChange} />
+          <label class="input-label">Adres</label>
+          <input class="input-space" name="adressInput" type="text" placeholder="Wpisz swój adres." value={this.state.adressInput} onChange={this.handleChange} />
         </div>
 
         <div class="input-container">
-          <label class="input-label">Email</label>
-          <input class="input-space" name="emailInput" type="text" placeholder="Wpisz swój adres email" value={this.state.emailInput} onChange={this.handleChange} />
+          <label class="input-label">E-Mail</label>
+          <input class="input-space" name="emailInput" type="text" placeholder="Wpisz swój adres e-mail." value={this.state.emailInput} onChange={this.handleChange} />
         </div>
 
         <div class="paymentContainer">
@@ -68,12 +67,12 @@ class Froms extends React.Component {
 
         <div class="checkbox-container">
           <input type="checkbox" name="acceptTerms" checked={this.state.acceptTerms} onChange={this.handleChange} ></input>
-          <label for="acceptTerms">Akcpetuje Regulamin i Polityke prywatności</label>
+          <label for="acceptTerms">Akceptuję Regulamin i Politykę Prywatności</label>
         </div>
 
         <div class="checkbox-container">
           <input type="checkbox" name="acceptPurchase" checked={this.state.acceptPurchase} onChange={this.handleChange} ></input>
-          <label for="acceptPurchase">Zakup</label>
+          <label for="acceptPurchase">Zamawiam z obowiązkiem zapłaty</label>
         </div>
 
         <div class="forms-info">Wszystkie pola są wymagane</div>
