@@ -62,6 +62,8 @@ class Froms extends React.Component {
           <select class="paymentSelect" name="paymentSelect" value={this.state.paymentSelect} onChange={this.handleChange}> 
             <option value="hotpay">HotPay</option>
             <option value="sms">SMS</option>
+            <option value="psc">Paysafecard</option>
+            <option value="btc">Bitcoin</option>
           </select> 
         </div>
 
