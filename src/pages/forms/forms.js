@@ -1,5 +1,6 @@
 import React from "react";
 import "./forms.css";
+import axios from "axios";
 
 class Froms extends React.Component {
   constructor(props) {
@@ -34,7 +35,17 @@ class Froms extends React.Component {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
   };
 
-  handleSubmit(event) {
+  async checkLogin() {
+    axios.get("http://localhost:1000/login/success") 
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  async handleSubmit(event) {
     let data = {
       name: this.state.name, 
       surname: this.state.surname, 
@@ -44,6 +55,8 @@ class Froms extends React.Component {
       paymentMethod: this.state.paymentSelect, 
       acceptPurchase: this.state.acceptPurchase
     };
+
+    await this.checkLogin();
 
     // check: first name validity. 
     if (this.validateName(data.name) === false) {
