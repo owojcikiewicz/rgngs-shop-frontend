@@ -4,13 +4,13 @@ import "./forms.css";
 class Froms extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      nameInput: "",
-      surnameInput: "",
-      adressInput: "",
-      emailInput: "",
+    this.state = {  
+      name: "",
+      surname: "",
+      address: "",
+      email: "",
       acceptTerms: false,
-      paymentSelect:"hotpay",
+      paymentMethod:"hotpay",
       acceptPurchase: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -26,40 +26,87 @@ class Froms extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  validateName(name) {
+    return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(name);
+  };
 
-    console.log(this.state)
+  validateEmail(email) {
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+  };
+
+  handleSubmit(event) {
+    let data = {
+      name: this.state.name, 
+      surname: this.state.surname, 
+      address: this.state.address, 
+      email: this.state.email, 
+      terms: this.state.acceptTerms, 
+      paymentMethod: this.state.paymentSelect, 
+      acceptPurchase: this.state.acceptPurchase
+    };
+
+    // check: first name validity. 
+    if (this.validateName(data.name) === false) {
+      alert("Nieprawidłowe imię!");
+      return;
+    };
+
+    // check: surname validity. 
+    if (this.validateName(data.surname) === false) {
+      alert("Nieprawidłowe nazwisko!");
+      return;
+    };
+
+    // check: e-mail validity. 
+    if (this.validateEmail(data.email) === false) {
+      alert("Nieprawidłowy e-mail!");
+      return;
+    };
+
+    // check: terms accepted. 
+    if (data.terms !== true) {
+      alert("Regulamin nie został zaakceptowany!");
+      return;
+    };
+
+    // check: payment intent. 
+    if (data.acceptPurchase !== true) {
+      alert("Obowiązek zapłaty nie został wypełniony!");
+      return; 
+    };
+    
     event.preventDefault();
-  }
+  };
+
   render() {
     return (
       <div class="forms-container">
        <h1 class="forms-main-text">ZAMÓWIENIE</h1>
-       <form class="main-form" autocomplete="off" onSubmit={this.handleSubmit}>
+       <form class="main-form" autoComplete="off" onSubmit={this.handleSubmit}>
        
         <div class="input-container">
           <label class="input-label">Imię</label>
-          <input class="input-space" name="nameInput" type="text" placeholder="Wpisz swoje imie." value={this.state.nameInput} onChange={this.handleChange}/>
+          <input class="input-space" name="name" type="text" placeholder="Wpisz swoje imie." value={this.state.nameInput} onChange={this.handleChange}/>
         </div>
 
         <div class="input-container">
           <label class="input-label">Nazwisko</label>
-          <input class="input-space" name="surnameInput" type="text" placeholder="Wpisz swoje nazwisko." value={this.state.surnameInput} onChange={this.handleChange} />
+          <input class="input-space" name="surname" type="text" placeholder="Wpisz swoje nazwisko." value={this.state.surnameInput} onChange={this.handleChange} />
         </div>
 
         <div class="input-container">
           <label class="input-label">Adres</label>
-          <input class="input-space" name="adressInput" type="text" placeholder="Wpisz swój adres." value={this.state.adressInput} onChange={this.handleChange} />
+          <input class="input-space" name="address" type="text" placeholder="Wpisz swój adres." value={this.state.addressInput} onChange={this.handleChange} />
         </div>
 
         <div class="input-container">
           <label class="input-label">E-Mail</label>
-          <input class="input-space" name="emailInput" type="text" placeholder="Wpisz swój adres e-mail." value={this.state.emailInput} onChange={this.handleChange} />
+          <input class="input-space" name="email" type="text" placeholder="Wpisz swój adres e-mail." value={this.state.emailInput} onChange={this.handleChange} />
         </div>
 
         <div class="paymentContainer">
           <label>Metody Płatności</label>
-          <select class="paymentSelect" name="paymentSelect" value={this.state.paymentSelect} onChange={this.handleChange}> 
+          <select class="paymentSelect" name="paymentMethod" value={this.state.paymentSelect} onChange={this.handleChange}> 
             <option value="hotpay">HotPay</option>
             <option value="sms">SMS</option>
             <option value="psc">Paysafecard</option>
