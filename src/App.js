@@ -6,6 +6,7 @@ import Footer from "./components/footer/footer";
 import Shop from "./pages/shop/shop";
 import Privacy from "./pages/privacy/privacy";
 import Terms from "./pages/terms/terms";
+import Forms from "./pages/forms/forms"
 
 class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
           <Route path="/" exact component={Shop}/>
           <Route path="/privacy" component={Privacy}/>
           <Route path="/terms" component={Terms}/>
+          <Route path="/forms" component={Forms}/>
         </Switch>
         <Footer/>
       </Router>
