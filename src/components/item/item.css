@@ -68,6 +68,7 @@
     height: calc(100% - 180px);
     color: var(--text2);
     padding: 15px;
+    white-space: pre;
 }
 
 
