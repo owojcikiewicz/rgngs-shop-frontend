@@ -32,11 +32,11 @@ class Shop extends React.Component {
       <div class="shop-container">
         <div class="shop-text-container">
           <h2>NASZA OFERTA</h2>
-          <div class="shop-desccription">U nas zakupisz se cos tam scos tam i wgl jakis </div>
+          <div class="shop-desccription">Poniżej znajduje się lista dostępnych do kupienia pakietów.</div>
         </div>
         <div class="items-container">
           {this.state.packages.map((val, key) => {
-            return <Item id={val.id} title={val.title} gradient={val.gradient} description={val.description} price={val.price + " PLN"}/>;
+            return <Item id={val.id} title={val.name} gradient={val.gradient} description={val.description} price={val.price + " PLN"}/>;
           })}
         </div>
       </div>
