@@ -36,7 +36,7 @@ class Shop extends React.Component {
         </div>
         <div class="items-container">
           {this.state.packages.map((val, key) => {
-            return <Item title={val.title} gradient={val.gradient} description={val.description} price={val.price + " PLN"}/>;
+            return <Item id={val.id} title={val.title} gradient={val.gradient} description={val.description} price={val.price + " PLN"}/>;
           })}
         </div>
       </div>
