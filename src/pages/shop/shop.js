@@ -19,7 +19,7 @@ class Shop extends React.Component {
             name: i.name, 
             description: i.description, 
             price: i.price, 
-            gradient: "linear-gradient(to right, #015f9d, #285685)"
+            gradient: i.gradient
           };
         };
         
