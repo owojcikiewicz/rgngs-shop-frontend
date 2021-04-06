@@ -70,6 +70,21 @@
   left: 1px;
   transform: translateY(-50%);
 }
+
+.profile-menu{
+  display: none;
+  position: relative;
+  top: 65px;
+  background-color: var(--secondary); 
+  border-bottom: 1px solid var(--text2);
+  border-left: 1px solid var(--text2);
+  border-right: 1px solid var(--text2);
+}
+
+.profile-menu .active{
+  display: flex;
+}
+
 /*
 .profile-name{
   position: absolute;

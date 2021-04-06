@@ -10,6 +10,11 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {user: {}, info: {}, loggedin: false};
+    this.profilemenu = false;
+  };
+
+  showProfile() {
+    this.profilemenu = !this.profilemenu
   };
 
   async getInfo(id) {
@@ -48,9 +53,12 @@ class Header extends React.Component {
 
     return (
       <header class="header">
-        <button class="profile-btn">
+        <button class="profile-btn" onClick={this.showProfile}>
          <Avatar size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
         </button>
+        <div className={this.profilemenu ? 'profile-menu active' : 'profile-menu'}>
+
+        </div>
         <Link to={"/"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
       </header>
       )
