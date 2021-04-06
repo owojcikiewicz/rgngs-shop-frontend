@@ -78,7 +78,30 @@ class Header extends React.Component {
          <Avatar size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
         </button>
         <div className={this.state.profilemenu ? "profile-menu active" : "profile-menu"}>
-
+          
+          <div class="profile-info">
+            <Avatar className="profile-avatar" size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
+            <label class="profile-name">{this.state.info.name}</label>
+            <label class="profile-rcoins">rCoins:{this.state.user.rcoins}</label>
+          </div>
+          
+          <div class="button-container">
+            <button class="history-btn">
+              <img class="history-img" src={Steam} alt="Steam"></img>
+              <label class="history-text">HISTORIA ZAMÓWIEŃ</label>
+            </button>
+            
+            <button class="help-btn">
+              <img class="help-img" src={Steam} alt="Steam"></img>
+              <label class="help-text">CENTRUM POMOCY</label>
+            </button>
+            
+            <button class="logout-btn">
+              <img class="logout-img" src={Steam} alt="Steam"></img>
+              <label class="logout-text">WYLOGUJ SIĘ</label>
+            </button>
+         
+          </div>
         </div>
         <Link to={"/"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
       </header>

@@ -73,26 +73,41 @@
 
 .profile-menu{
   display: none;
-  position: relative;
+  position: absolute;
+  width: 200px;
+  height: 200px;
   top: 65px;
+  right: 10px;
   background-color: var(--secondary); 
   border-bottom: 1px solid var(--text2);
   border-left: 1px solid var(--text2);
   border-right: 1px solid var(--text2);
 }
 
-.profile-menu .active{
+.profile-menu.active{
   display: flex;
-  width: 200px;
-  height: 200px;
+  flex-direction: column;
 }
 
-/*
+.profile-info{
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 65px;
+}
+
+.profile-avatar{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
 .profile-name{
   position: absolute;
   top: 20%;
   color: var(--text);
-  left: 4px;
+  right: 5px;
   font-size: 1.2em;
   transform: translateY(-20%);
 }
@@ -100,11 +115,28 @@
 .profile-rcoins{
   position: absolute;
   top: 80%;
-  left: 4px;
+  right: 5px;
   font-size: 1em;
   color: var(--text2);
   transform: translateY(-80%);
-}*/
+}
+
+.button-container{
+  position: relative;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.button-container button{
+  width: 100%;
+  color: var(--text);
+  outline: auto;
+  border: none;
+  background-color: var(--input);
+}
+
 
 /* LOGO */
 .rgngs-logo {
