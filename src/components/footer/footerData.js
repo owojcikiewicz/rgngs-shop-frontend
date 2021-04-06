@@ -2,14 +2,12 @@
 const footerRoutes = [
   {
     title: "Polityka prywatności",
-    link: "/privacy"
-
+    link: "/polityka-prywatnosci"
   },
-  
   {
     title: "Regulamin",
-    link: "/terms"
-
+    link: "/regulamin"
   }
 ];
-  export default footerRoutes;
+
+export default footerRoutes;
