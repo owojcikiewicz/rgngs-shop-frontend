@@ -11,9 +11,8 @@ class Shop extends React.Component {
 
   async componentDidMount() {
     let packages = [];
-    await axios.get("http://localhost:1000/packages")
+    await axios.get("/packages")
       .then(res => {
-        console.log(res.data);
         for (let i of res.data) {
           packages[i.id] = {
             name: i.name, 

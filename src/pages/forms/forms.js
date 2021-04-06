@@ -36,7 +36,7 @@ class Froms extends React.Component {
   };
 
   async checkLogin() {
-    await axios.get("http://localhost:1000/login/user", {withCredentials: true}) 
+    await axios.get("/login/user", {withCredentials: true}) 
       .then(data => {
         console.log(data);
       })
