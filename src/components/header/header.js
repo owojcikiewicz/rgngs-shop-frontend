@@ -4,17 +4,23 @@ import "./header.css"
 import Steam from "../../assets/steam.png";
 import Logo from "../../assets/logo.png";
 import {Link} from "react-router-dom";
-import Avatar from 'react-avatar';
+import Avatar from "react-avatar";
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {user: {}, info: {}, loggedin: false};
-    this.profilemenu = false;
-  };
+    this.state = {
+      user: {}, 
+      info: {}, 
+      loggedin: false, 
+      profilemenu: false
+    };
 
-  showProfile() {
-    this.profilemenu = !this.profilemenu
+    this.showProfile = () => {
+      this.setState(state => ({
+        profilemenu: !state.profilemenu
+      }));
+    };
   };
 
   async getInfo(id) {
@@ -34,15 +40,30 @@ class Header extends React.Component {
       .then(async res => { 
         await this.getInfo(res.data.id)
           .then(info => {
-            this.setState({user: {id: res.data.id, rcoins: res.data.rcoins}, info: info, loggedin: true})
+            this.setState(state => ({
+              user: {id: res.data.id, rcoins: res.data.rcoins},
+              info: info,
+              loggedin: true,
+              profilemenu: state.profilemenu
+            }));
           })
           .catch(err => {
-            this.setState({user: {id: res.data.id, rcoins: res.data.rcoins}, info: {}, loggedin: true})
+            this.setState(state => ({
+              user: {id: res.data.id, rcoins: res.data.rcoins},
+              info: state.info,
+              loggedin: true,
+              profilemenu: state.profilemenu
+            }));
           }); 
       })
       .catch(err => {
         if (err.code == 401) {
-          this.setState({user: {}, info: {}, loggedin: false});
+          this.setState(state => ({
+            user: state.user,
+            info: state.info,
+            loggedin: false,
+            profilemenu: state.profilemenu
+          }));
         };
       });
   };
@@ -56,7 +77,7 @@ class Header extends React.Component {
         <button class="profile-btn" onClick={this.showProfile}>
          <Avatar size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
         </button>
-        <div className={this.profilemenu ? 'profile-menu active' : 'profile-menu'}>
+        <div className={this.state.profilemenu ? "profile-menu active" : "profile-menu"}>
 
         </div>
         <Link to={"/"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
