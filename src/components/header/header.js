@@ -4,6 +4,7 @@ import "./header.css"
 import Steam from "../../assets/steam.png";
 import Logo from "../../assets/logo.png";
 import {Link} from "react-router-dom";
+import Avatar from 'react-avatar';
 
 class Header extends React.Component {
   constructor(props) {
@@ -47,10 +48,9 @@ class Header extends React.Component {
 
     return (
       <header class="header">
-        <a class="login-btn" href="/login" rel="noreferrer" >
-          <label class="steam-login-text">{this.state.user.rcoins}</label>
-         <img class="steam-login-img" src={Steam} alt="Steam"></img>
-        </a>
+        <button class="profile-btn">
+         <Avatar size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
+        </button>
         <Link to={"/"}><img class="rgngs-logo" src={Logo} alt="Logo" ></img></Link>
       </header>
       )

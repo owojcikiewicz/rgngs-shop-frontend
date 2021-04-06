@@ -31,7 +31,6 @@
   left: 8px;
   transform: translateY(-50%);
 }
-
 .steam-login-text {
   pointer-events: none;
   position: absolute;
@@ -47,6 +46,48 @@
   color: var(--accent);
   transition: 0.5s;
 }
+
+/* PROFILE */
+.profile-btn{
+  position: absolute;
+  color: var(--text);
+  right: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--accent2);
+  transition: 0.5s;
+  width: 42px;
+  height: 42px;
+  top: 50%;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.sb-avatar{
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  transform: translateY(-50%);
+}
+/*
+.profile-name{
+  position: absolute;
+  top: 20%;
+  color: var(--text);
+  left: 4px;
+  font-size: 1.2em;
+  transform: translateY(-20%);
+}
+
+.profile-rcoins{
+  position: absolute;
+  top: 80%;
+  left: 4px;
+  font-size: 1em;
+  color: var(--text2);
+  transform: translateY(-80%);
+}*/
 
 /* LOGO */
 .rgngs-logo {
