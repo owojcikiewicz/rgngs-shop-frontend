@@ -23,9 +23,9 @@ class App extends React.Component {
     };
   };
 
-  async getInfo(id) {
+  async getInfo() {
     return new Promise(async (resolve, reject) => {
-      await axios.get("/info?id=" + id)
+      await axios.get("/info")
         .then(res => {
           resolve(res.data);
         })
@@ -38,7 +38,7 @@ class App extends React.Component {
   async getLogin() {
     await axios.get("/login/user", {withCredentials: true}) 
       .then(async res => { 
-        await this.getInfo(res.data.id)
+        await this.getInfo()
           .then(info => {
             this.setState(state => ({
               login: {
