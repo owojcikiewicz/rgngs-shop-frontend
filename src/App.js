@@ -8,6 +8,7 @@ import Shop from "./pages/shop/shop";
 import Privacy from "./pages/privacy/privacy";
 import Terms from "./pages/terms/terms";
 import Loader from "react-loader-spinner";
+import Order from "./pages/order/order";
 
 class App extends React.Component {
   constructor(props) {
@@ -134,6 +135,7 @@ class App extends React.Component {
             <Route exact path="/" render={props => (<Shop packages={this.state.packages} login={this.state.login}/>)}/>
             <Route path="/polityka-prywatnosci" render={props => (<Privacy/>)}/>
             <Route path="/regulamin" render={props => (<Terms/>)}/>
+            <Route path="/zamowienie" render={props => (<Order {...props}/>)}/>
           </Switch>
         <Footer/>
         </Router>

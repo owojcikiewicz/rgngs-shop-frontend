@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../forms/forms";
+import {Redirect} from "react-router-dom";
 import "./item.css";
 
 class Item extends React.Component {
@@ -24,9 +24,13 @@ class Item extends React.Component {
 
     render() {  
         if (this.state.showForm === true) {
-            // @TODO: Fix this. 
             return (
-                <Form id={this.props.id} user={this.props.login.user}/>
+                <Redirect
+                    to={{
+                        pathname: "/zamowienie",
+                        state: {id: this.props.id, user: this.props.login.user}
+                    }}
+                />
             )
         };
 
