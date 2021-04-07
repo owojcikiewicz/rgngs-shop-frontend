@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import "./header.css"
 import Steam from "../../assets/steam.png";
 import Help from "../../assets/lifebuoy.png";
@@ -39,17 +38,17 @@ class Header extends React.Component {
           </div>
           
           <div class="button-container">
-            <a class="history-btn" href="#" rel="noreferrer" >
+            <a class="history-btn" href="/historia" rel="noreferrer" >
               <img class="history-img" src={History} alt="Steam"></img>
               <label class="history-text">HISTORIA ZAMÓWIEŃ</label>
             </a>
             
-            <a class="help-btn" href="#" rel="noreferrer" >
+            <a class="help-btn" href="/pomoc" rel="noreferrer" >
               <img class="help-img" src={Help} alt="Steam"></img>
               <label class="help-text">CENTRUM POMOCY</label>
             </a>
             
-            <a class="logout-btn" href="#" rel="noreferrer" >
+            <a class="logout-btn" href="/logout" rel="noreferrer" >
               <img class="logout-img" src={Logout} alt="Steam"></img>
               <label class="logout-text">WYLOGUJ SIĘ</label>
             </a>
