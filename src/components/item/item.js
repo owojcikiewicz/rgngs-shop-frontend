@@ -6,19 +6,19 @@ class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showForm: false
+            showForm: false,
         };
         this.handleBuy = this.handleBuy.bind(this);
     }; 
 
     handleBuy() {
-        // task: check login. 
         if (this.props.login.loggedin !== true) {
+            window.location.assign("/login");
             return;
         };
 
         this.setState(state => ({
-            showForm: true
+            showForm: true,
         }));
     };
 
@@ -28,7 +28,7 @@ class Item extends React.Component {
                 <Redirect
                     to={{
                         pathname: "/zamowienie",
-                        state: {id: this.props.id, user: this.props.login.user}
+                        state: {id: this.props.id, name: this.props.title, user: this.props.login.user}
                     }}
                 />
             )
