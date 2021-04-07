@@ -1,21 +1,35 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
+import Form from "../forms/forms";
 import "./item.css";
 
 class Item extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            showForm: false
+        };
         this.handleBuy = this.handleBuy.bind(this);
     }; 
 
     handleBuy() {
         // task: check login. 
         if (this.props.login.loggedin !== true) {
-            // @TODO: Redirect to /login.
+            return;
         };
+
+        this.setState(state => ({
+            showForm: true
+        }));
     };
 
     render() {  
+        if (this.state.showForm === true) {
+            // @TODO: Fix this. 
+            return (
+                <Form id={this.props.id} user={this.props.login.user}/>
+            )
+        };
+
         return (
             <div class="item-layout">
                 <div class="item-main">
