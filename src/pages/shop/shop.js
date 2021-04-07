@@ -4,7 +4,7 @@ import "./shop.css";
 
 class Shop extends React.Component {
   constructor(props) {
-    super();
+    super(props);
   };
 
   render() {
@@ -16,7 +16,7 @@ class Shop extends React.Component {
         </div>
         <div class="items-container">
           {this.props.packages.map((val, key) => {
-            return <Item id={val.id} title={val.name} gradient={val.gradient} description={val.description} price={val.price + " PLN"}/>;
+            return <Item id={val.id} title={val.name} gradient={val.gradient} description={val.description} price={val.price + " PLN"} login={this.props.login}/>;
           })}
         </div>
       </div>
