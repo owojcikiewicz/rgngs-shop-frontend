@@ -10,9 +10,6 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}, 
-      info: {}, 
-      loggedin: false, 
       profilemenu: false
     };
 
@@ -23,66 +20,19 @@ class Header extends React.Component {
     };
   };
 
-  async getInfo(id) {
-    return new Promise(async (resolve, reject) => {
-      await axios.get("/info?id=" + id)
-        .then(res => {
-          resolve(res.data);
-        })
-        .catch(err => {
-          reject(err);
-        });
-    });
-  };
-
-  async componentDidMount() {
-    await axios.get("/login/user", {withCredentials: true}) 
-      .then(async res => { 
-        await this.getInfo(res.data.id)
-          .then(info => {
-            this.setState(state => ({
-              user: {id: res.data.id, rcoins: res.data.rcoins},
-              info: info,
-              loggedin: true,
-              profilemenu: state.profilemenu
-            }));
-          })
-          .catch(err => {
-            this.setState(state => ({
-              user: {id: res.data.id, rcoins: res.data.rcoins},
-              info: state.info,
-              loggedin: true,
-              profilemenu: state.profilemenu
-            }));
-          }); 
-      })
-      .catch(err => {
-        if (err.code == 401) {
-          this.setState(state => ({
-            user: state.user,
-            info: state.info,
-            loggedin: false,
-            profilemenu: state.profilemenu
-          }));
-        };
-      });
-  };
-
  render() {
-  if (this.state.loggedin === true) {
-    console.log(this.state);
-
+  if (this.props.loggedin === true) {
     return (
       <header class="header">
         <button class="profile-btn" onClick={this.showProfile}>
-         <Avatar size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
+         <Avatar size="40" src={this.props.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
         </button>
         <div className={this.state.profilemenu ? "profile-menu active" : "profile-menu"}>
           
           <div class="profile-info">
-            <Avatar className="profile-avatar" size="40" src={this.state.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
-            <label class="profile-name">{this.state.info.name}</label>
-            <label class="profile-rcoins">rCoins:{this.state.user.rcoins}</label>
+            <Avatar className="profile-avatar" size="40" src={this.props.info.avatar.medium} round={true} alt={"https://steamuserimages-a.akamaihd.net/ugc/885384897182110030/F095539864AC9E94AE5236E04C8CA7C2725BCEFF/"} />
+            <label class="profile-name">{this.props.info.name}</label>
+            <label class="profile-rcoins">rCoins:{this.props.user.rcoins}</label>
           </div>
           
           <div class="button-container">
