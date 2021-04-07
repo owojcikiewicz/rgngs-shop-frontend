@@ -7,6 +7,7 @@ import Footer from "./components/footer/footer";
 import Shop from "./pages/shop/shop";
 import Privacy from "./pages/privacy/privacy";
 import Terms from "./pages/terms/terms";
+import Loader from "react-loader-spinner";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class App extends React.Component {
         info: {}, 
         loggedin: false
       },
-      packages: []
+      packages: [],
+      loaded: false
     };
   };
 
@@ -33,8 +35,7 @@ class App extends React.Component {
     });
   };
 
-  async componentDidMount() {
-    // fetch: login status. 
+  async getLogin() {
     await axios.get("/login/user", {withCredentials: true}) 
       .then(async res => { 
         await this.getInfo(res.data.id)
@@ -45,7 +46,8 @@ class App extends React.Component {
                 info: info,
                 loggedin: true
               },
-              packages: state.packages
+              packages: state.packages,
+              loaded: state.loaded
             }));
           })
           .catch(err => {
@@ -55,7 +57,8 @@ class App extends React.Component {
                 info: state.info,
                 loggedin: true
               },
-              packages: state.packages
+              packages: state.packages,
+              loaded: state.loaded
             }));
           }); 
       })
@@ -67,12 +70,14 @@ class App extends React.Component {
               info: state.info,
               loggedin: false,
             },
-            packages: state.packages
+            packages: state.packages,
+            loaded: state.loaded
           }));
         };
       });
-    
-    // fetch: packages. 
+  };
+
+  async getPackages() {
     await axios.get("/packages")
       .then(res => {
         let packages = [];
@@ -88,13 +93,38 @@ class App extends React.Component {
         
         this.setState(state => ({
           login: state.login,
-          packages: packages
+          packages: packages,
+          loaded: state.loaded
         }));
     });
   };
 
+  async componentDidMount() {
+    // fetch: login status. 
+    await this.getLogin();
+    
+    // fetch: packages.
+    await this.getPackages(); 
+
+    // task: remove loading screen.
+    this.setState(state => ({
+      login: state.login,
+      packages: state.packages,
+      loaded: true
+    }));
+  };
+
   render() {
-    console.log(this.state);
+    if (this.state.loaded === false) {
+      return (
+        <Loader
+          type="Rings"
+          color="#00BFFF"
+          height={100}
+          width={100}
+        />
+      ); 
+    };
 
     return (
       <>
