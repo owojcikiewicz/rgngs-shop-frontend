@@ -1,45 +1,31 @@
 import React from "react";
-import "./item.css"
+import {Redirect} from "react-router-dom";
+import "./item.css";
 
 class Item extends React.Component {
     constructor(props) {
         super(props);
-        this.id = props.id;
-        this.title = props.title;
-        this.description = props.description;
-        this.price = props.price;
-        this.gradient = props.gradient;
+        this.handleBuy = this.handleBuy.bind(this);
     }; 
 
-    buy() {
-
+    handleBuy() {
+        // task: check login. 
+        if (this.props.login.loggedin !== true) {
+            // @TODO: Redirect to /login.
+        };
     };
 
     render() {  
-        if (this.title === "VIP") {
-            let str = "Wyróźnij się z tłumu i zyskaj eksluzywne benefity!\n\n- Możliwość stworzenia dwóch postaci\n- Ekskluzywne pojazdy VIP\n- Własne tablice rejestracyjne\n- Pełna oferta Paralake Customs\n- 50+ miejsca w banku\n- 50+ miejsca w sejfach\n- Boost do regeneracji kondycji\n- 2 dodatkowe doniczki\n- 2 dodatkowe lampy\n- 2 dodatkowe wentylatory\n\nI wiele, wiele więcej!";
-            return (
-                <div class="item-layout">
-                    <div class="item-main">
-                        <div class="item-header" style={{backgroundImage:this.gradient}}><label class="item-title">{this.title}</label></div>
-                        <button class="item-button" style={{backgroundImage:this.gradient}} onClick={this.buy}>KUP</button>
-                        <div class="item-price-div"><label class="item-price">{this.price}</label></div>
-                        <div class="item-content">{<p>{str}</p>}</div>
-                    </div>
+        return (
+            <div class="item-layout">
+                <div class="item-main">
+                    <div class="item-header" style={{backgroundImage:this.props.gradient}}><label class="item-title">{this.props.title}</label></div>
+                    <button class="item-button" style={{backgroundImage:this.props.gradient}} onClick={this.handleBuy}>KUP</button>
+                    <div class="item-price-div"><label class="item-price">{this.props.price}</label></div>
+                    <div class="item-content">{<p>{this.props.description}</p>}</div>
                 </div>
-            )
-        } else {
-            return (
-                <div class="item-layout">
-                    <div class="item-main">
-                        <div class="item-header" style={{backgroundImage:this.gradient}}><label class="item-title">{this.title}</label></div>
-                        <button class="item-button" style={{backgroundImage:this.gradient}} onClick={this.buy}>KUP</button>
-                        <div class="item-price-div"><label class="item-price">{this.price}</label></div>
-                        <div class="item-content">{this.description}</div>
-                    </div>
-                </div>
-            )
-        };
+            </div>
+        )
     };
 }
 
