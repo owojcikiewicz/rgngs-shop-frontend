@@ -1,8 +1,7 @@
 import React from "react";
 import "./forms.css";
-import axios from "axios";
 
-class Froms extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {  
@@ -14,9 +13,10 @@ class Froms extends React.Component {
       paymentMethod:"hotpay",
       acceptPurchase: false
     };
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   handleChange(event) {
     const target = event.target;
@@ -35,16 +35,6 @@ class Froms extends React.Component {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
   };
 
-  async checkLogin() {
-    await axios.get("/login/user", {withCredentials: true}) 
-      .then(data => {
-        console.log(data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   async handleSubmit(event) {
     let data = {
       name: this.state.name, 
@@ -56,39 +46,54 @@ class Froms extends React.Component {
       acceptPurchase: this.state.acceptPurchase
     };
 
-    await this.checkLogin();
+    // check: user is valid. 
+    if (!this.props.user) {
+      console.log("Nie jesteś zalogowany!");
+      return;
+    };
+
+    // check: package id is valid. 
+    if (!this.props.id) {
+      console.log("Niepoprawny ID pakietu!");
+      return;
+    };
 
     // check: first name validity. 
     if (this.validateName(data.name) === false) {
-      alert("Nieprawidłowe imię!");
+      console.log("Nieprawidłowe imię!");
       return;
     };
 
     // check: surname validity. 
     if (this.validateName(data.surname) === false) {
-      alert("Nieprawidłowe nazwisko!");
+      console.log("Nieprawidłowe nazwisko!");
       return;
     };
 
     // check: e-mail validity. 
     if (this.validateEmail(data.email) === false) {
-      alert("Nieprawidłowy e-mail!");
+      console.log("Nieprawidłowy e-mail!");
       return;
     };
 
     // check: terms accepted. 
     if (data.terms !== true) {
-      alert("Regulamin nie został zaakceptowany!");
+      console.log("Regulamin nie został zaakceptowany!");
       return;
     };
 
     // check: payment intent. 
     if (data.acceptPurchase !== true) {
-      alert("Obowiązek zapłaty nie został wypełniony!");
+      console.log("Obowiązek zapłaty nie został wypełniony!");
       return; 
     };
+
+    console.log("USER: " + this.props.user.id);
+    console.log("ID: " + this.props.id);
     
     event.preventDefault();
+
+    // @TODO: SUBMIT ORDER INTENT TO SERVER.
   };
 
   render() {
@@ -147,4 +152,4 @@ class Froms extends React.Component {
   }
 }
 
-export default Froms;
+export default Form;
