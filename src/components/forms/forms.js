@@ -99,7 +99,7 @@ class Form extends React.Component {
   render() {
     return (
       <div class="forms-container">
-       <h1 class="forms-main-text">ZAMÓWIENIE</h1>
+       <h1 class="forms-main-text">ZAMÓWIENIE - {this.props.name.toUpperCase()}</h1>
        <form class="main-form" autoComplete="off" onSubmit={this.handleSubmit}>
        
         <div class="input-container">

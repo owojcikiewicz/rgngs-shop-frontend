@@ -10,7 +10,7 @@ class Order extends React.Component {
     render() {
         if (this.props.location && this.props.location.state && this.props.location.state.id && this.props.location.state.user) {
             return (
-                <Form id={this.props.location.state.id} user={this.props.location.state.user}/>
+                <Form name={this.props.location.state.name} id={this.props.location.state.id} user={this.props.location.state.user}/>
             );
         };
 
