@@ -77,7 +77,8 @@ class App extends React.Component {
       .then(res => {
         let packages = [];
         for (let i of res.data) {
-          packages[i.id] = {
+          packages[packages.length + 1] = {
+            id: i.id,
             name: i.name, 
             description: i.description, 
             price: i.price, 
@@ -100,7 +101,7 @@ class App extends React.Component {
       <Router>
         <Header user={this.state.login.user} info={this.state.login.info} loggedin={this.state.login.loggedin}/> 
           <Switch>
-            <Route exact path="/" render={props => (<Shop packages={this.state.packages}/>)}/>
+            <Route exact path="/" render={props => (<Shop packages={this.state.packages} login={this.state.login}/>)}/>
             <Route path="/polityka-prywatnosci" render={props => (<Privacy/>)}/>
             <Route path="/regulamin" render={props => (<Terms/>)}/>
           </Switch>
