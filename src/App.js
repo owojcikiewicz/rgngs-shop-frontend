@@ -96,15 +96,17 @@ class App extends React.Component {
     console.log(this.state);
 
     return (
-     <Router>
-     <Header user={this.state.login.user} info={this.state.login.info} loggedin={this.state.login.loggedin}/> 
-        <Switch>
-          <Route path="/" render={props => (<Shop packages={this.state.packages}/>)}/>
-          <Route path="/polityka-prywatnosci" component={Privacy}/>
-          <Route path="/regulamin" component={Terms}/>
-        </Switch>
+      <>
+      <Router>
+        <Header user={this.state.login.user} info={this.state.login.info} loggedin={this.state.login.loggedin}/> 
+          <Switch>
+            <Route exact path="/" render={props => (<Shop packages={this.state.packages}/>)}/>
+            <Route path="/polityka-prywatnosci" render={props => (<Privacy/>)}/>
+            <Route path="/regulamin" render={props => (<Terms/>)}/>
+          </Switch>
         <Footer/>
-      </Router>
+        </Router>
+      </>
     )
  }
 }
