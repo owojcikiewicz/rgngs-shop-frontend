@@ -9,6 +9,7 @@ import Privacy from "./pages/privacy/privacy";
 import Terms from "./pages/terms/terms";
 import Loader from "react-loader-spinner";
 import Order from "./pages/order/order";
+import History from "./pages/history/history";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,9 +21,28 @@ class App extends React.Component {
         loggedin: false
       },
       packages: [],
+      orders: [],
       loaded: false
     };
   };
+
+  async getOrders() {
+    axios.get("/orders", {withCredentials: true})   
+      .then(async res => {
+          this.setState(state => ({
+              login: state.login,
+              packages: state.packages,
+              orders: res.data,
+              loaded: state.loaded
+          }));
+      })
+      .catch(err => {
+          if (err === 401) {
+              window.location.assign("/login");
+              return; 
+          };
+      });
+};
 
   async getInfo() {
     return new Promise(async (resolve, reject) => {
@@ -48,6 +68,7 @@ class App extends React.Component {
                 loggedin: true
               },
               packages: state.packages,
+              orders: state.orders,
               loaded: state.loaded
             }));
           })
@@ -59,6 +80,7 @@ class App extends React.Component {
                 loggedin: true
               },
               packages: state.packages,
+              orders: state.orders,
               loaded: state.loaded
             }));
           }); 
@@ -72,6 +94,7 @@ class App extends React.Component {
               loggedin: false,
             },
             packages: state.packages,
+            orders: state.orders,
             loaded: state.loaded
           }));
         };
@@ -95,6 +118,7 @@ class App extends React.Component {
         this.setState(state => ({
           login: state.login,
           packages: packages,
+          orders: state.orders,
           loaded: state.loaded
         }));
     });
@@ -107,10 +131,14 @@ class App extends React.Component {
     // fetch: packages.
     await this.getPackages(); 
 
+    // fetch: orders. 
+    await this.getOrders();
+
     // task: remove loading screen.
     this.setState(state => ({
       login: state.login,
       packages: state.packages,
+      orders: state.orders,
       loaded: true
     }));
   };
@@ -135,6 +163,7 @@ class App extends React.Component {
             <Route exact path="/" render={props => (<Shop packages={this.state.packages} login={this.state.login}/>)}/>
             <Route path="/polityka-prywatnosci" render={props => (<Privacy/>)}/>
             <Route path="/regulamin" render={props => (<Terms/>)}/>
+            <Route path="/historia" render={props => (<History login={this.state.login} orders={this.state.orders}/>)}/>
             <Route path="/zamowienie" render={props => (<Order {...props}/>)}/>
           </Switch>
         <Footer/>
