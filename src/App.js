@@ -10,6 +10,7 @@ import Terms from "./pages/terms/terms";
 import Loader from "react-loader-spinner";
 import Order from "./pages/order/order";
 import History from "./pages/history/history";
+import Page404 from "./pages/page404/page404"
 
 class App extends React.Component {
   constructor(props) {
@@ -166,6 +167,7 @@ class App extends React.Component {
             <Route path="/regulamin" render={props => (<Terms/>)}/>
             <Route path="/historia" render={props => (<History login={this.state.login} orders={this.state.orders}/>)}/>
             <Route path="/zamowienie" render={props => (<Order {...props}/>)}/>
+            <Route component={Page404} />
           </Switch>
         <Footer/>
         </Router>
