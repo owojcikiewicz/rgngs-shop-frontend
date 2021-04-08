@@ -147,8 +147,9 @@ class App extends React.Component {
     if (this.state.loaded === false) {
       return (
         <Loader
-          type="Rings"
-          color="#00BFFF"
+          className = "loader"
+          type="TailSpin"
+          color="var(--accent2)"
           height={100}
           width={100}
         />
