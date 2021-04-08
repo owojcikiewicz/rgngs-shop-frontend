@@ -15,16 +15,16 @@ class History extends React.Component {
 
     parseStatus(status) {
         switch(status) {
-            case "NEW":
+            case "new":
                 return {color: "var(--new)", lang: "NOWE"};
             
-            case "PENDING":
+            case "pending":
                 return {color: "var(--pending)", lang: "OCZEKUJĄCE"};
 
-            case "SUCCESS":
+            case "success":
                 return {color: "var(--success)", lang: "ZAKOŃCZONE"};
 
-            case "FAILURE":
+            case "failure":
                 return {color: "var(--failure)", lang: "ANULOWANE"};
 
             default: 
@@ -60,6 +60,7 @@ class History extends React.Component {
                 <table class="history-table">
                     <thead>
                         <tr>
+                        <th>ID</th>
                         <th>Data Zakupu</th>
                         <th>Pakiet</th>
                         <th>Metoda Płatności</th>
@@ -71,6 +72,7 @@ class History extends React.Component {
                     {this.props.orders.map((val, key) => {
                         return (
                             <tr>
+                                <td>{val.id}</td>
                                 <td>{this.parseTimestamp(val.timestamp)}</td>
                                 <td>{val.package}</td>
                                 <td>{this.parsePaymentMethod(val.paymentMethod)}</td>
