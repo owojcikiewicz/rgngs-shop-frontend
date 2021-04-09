@@ -38,12 +38,12 @@ class Header extends React.Component {
           </div>
           
           <div class="button-container">
-            <a class="history-btn" href="/historia" rel="noreferrer" >
+            <a class="history-btn" href="/historia-zamowien" rel="noreferrer" >
               <img class="history-img" src={History} alt="Steam"></img>
               <label class="history-text">HISTORIA ZAMÓWIEŃ</label>
             </a>
             
-            <a class="help-btn" href="/pomoc" rel="noreferrer" >
+            <a class="help-btn" href="/centrum-pomocy" rel="noreferrer" >
               <img class="help-img" src={Help} alt="Steam"></img>
               <label class="help-text">CENTRUM POMOCY</label>
             </a>

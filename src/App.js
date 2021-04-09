@@ -1,7 +1,7 @@
-import React from "react";
-import axios from "axios";
 import "./app.css";
+import React from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import axios from "axios";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Shop from "./pages/shop/shop";
@@ -10,7 +10,8 @@ import Terms from "./pages/terms/terms";
 import Loader from "react-loader-spinner";
 import Order from "./pages/order/order";
 import History from "./pages/history/history";
-import Page404 from "./pages/page404/page404"
+import Page404 from "./pages/page404/page404";
+import Help from "./pages/help/help";
 
 class App extends React.Component {
   constructor(props) {
@@ -165,7 +166,8 @@ class App extends React.Component {
             <Route exact path="/" render={props => (<Shop packages={this.state.packages} login={this.state.login}/>)}/>
             <Route path="/polityka-prywatnosci" render={props => (<Privacy/>)}/>
             <Route path="/regulamin" render={props => (<Terms/>)}/>
-            <Route path="/historia" render={props => (<History login={this.state.login} orders={this.state.orders}/>)}/>
+            <Route path="/historia-zamowien" render={props => (<History login={this.state.login} orders={this.state.orders}/>)}/>
+            <Route path="/centrum-pomocy" render={props => (<Help login={this.state.login} orders={this.state.orders}/>)}/>
             <Route path="/zamowienie" render={props => (<Order {...props}/>)}/>
             <Route component={Page404} />
           </Switch>
