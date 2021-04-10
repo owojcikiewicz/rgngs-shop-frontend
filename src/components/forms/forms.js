@@ -128,7 +128,6 @@ class Form extends React.Component {
             <option value="hotpay">HotPay</option>
             <option value="sms">SMS</option>
             <option value="psc">Paysafecard</option>
-            <option value="btc">Bitcoin</option>
           </select> 
         </div>
 
@@ -144,7 +143,7 @@ class Form extends React.Component {
 
         <div class="forms-info">Wszystkie pola są wymagane</div>
         <div class="forms-accept-div">
-         <input class="forms-accept" type="submit" value="Submit"></input>
+         <input class="forms-accept" type="submit" value="ZŁÓŻ ZAMÓWIENIE"></input>
         </div>
        </form>
       </div>
