@@ -1,0 +1,123 @@
+
+.help-container{
+  min-width: 400px;
+  position: relative;
+  z-index: 1;
+  margin: 15px 0 15px 0px;
+  padding: 15px 5px 15px 5px;
+  border-radius: 12px;
+  left: 50%;
+  background-color: var(--secondary);
+  min-height: calc(100vh - 65px);
+  width: 50%;
+  transform: translateX(-50%);
+ }
+ .help-form div{
+  margin: 5% 25px 0 25px;
+ }
+ 
+ .help-main-text{
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--accent2);
+ }
+ 
+.help-accept-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+ }
+ 
+ .help-accept{
+  background-color: var(--accent);
+  outline: none;
+  border: none;
+  color: var(--text2);
+  border-radius: 25px;
+  width:  40%;
+  height: 100%;
+  font-size: 2em;
+  transition: 0.2s;
+ }
+ 
+ .help-accept:hover{
+  background-color: var(--accent2);
+  cursor: pointer;
+  transition: 0.2s;
+  color: var(--text);
+ }
+ 
+ /* INPUTS */
+ 
+ .help-text-container{
+   position: relative;
+   width: auto;
+   height:	235px ;
+   display: block;
+ }
+ 
+ .help-label{
+   position:absolute;
+   top: 0;
+   font-size: 1.2em;
+ }
+ 
+ .help-space{
+   position: absolute;
+   bottom: 0;
+   height: 200px;
+   width: 100%;
+   word-wrap: break-word;
+   outline: none;
+   border: none;
+   color: white;
+   background-color: var(--primary);
+   padding:0 10px 0 10px;
+   border-radius: 5px;
+   font-size: 1.2em;
+ }
+ 
+ .help-space:focus{
+   border: solid 2px var(--accent);
+   background-color: var(--input);
+   border-radius: 5px;
+ }
+ 
+ 
+ /* PAYMENT */
+ .help-orderSelect{
+   display: flex;
+   flex-direction: column;
+   
+ 
+ }
+ .help-orderSelect label{
+   font-size: 1.2em;
+   margin-bottom: 15px;
+ }
+ 
+ .orderSelect{
+   background-color: var(--input);
+   color: var(--text2);
+   height: 32px;
+   padding-left: 10px;
+   font-size: 1em;
+   outline: none;
+   border: none;
+   text-decoration: none;
+   -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;    
+   border-radius: 5px;
+   background-image: url("../../assets/arrow.png");
+   background-position: right 10px top 50%;
+   background-repeat: no-repeat;
+   background-size: 16px;
+ }
+ 
+ .orderSelect:hover{
+   cursor: pointer;	
+   background-color: var(--header)
+ }
+ 

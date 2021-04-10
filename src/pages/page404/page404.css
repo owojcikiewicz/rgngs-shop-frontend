@@ -1,26 +1,21 @@
 .page404-main{
     position: relative;
-    z-index: 1;
-    min-height: calc(100vh - 65px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     width: 100%;
 }
 
 .page404-main-text{
-    position: absolute;
-    top: 40%;
     font-size: 10em;
     color: var(--accent2);
-    left: 50%;
-    transform: translate(-50%,-40%);
 }
 
 
 .page404-second-text{
-    position: absolute;
-    top: 60%;
-    font-size: 6em;
+    font-size: 4em;
     color: var(--text);
-    left: 50%;
-    transform: translate(-50%,-60%);
 }
 
