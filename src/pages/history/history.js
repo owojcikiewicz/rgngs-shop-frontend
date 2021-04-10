@@ -79,9 +79,8 @@ class History extends React.Component {
                                 <td>{val.price + " PLN"}</td>
                                 <td style={{color:this.parseStatus(val.status).color}} >{this.parseStatus(val.status).lang}</td>
                             </tr>
-                            );
-                        })
-                    }
+                        );
+                    })}
                     </tbody>
                     </table>
                 </div>
