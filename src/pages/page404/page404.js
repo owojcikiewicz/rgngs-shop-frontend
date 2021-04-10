@@ -6,7 +6,7 @@ class Page404 extends React.Component {
     return (
       <div class="page404-main">
         <label class="page404-main-text">404</label>
-        <label class="page404-second-text">Przepraszam ale nie możemy znaleźć tej strony</label>
+        <label class="page404-second-text">Strona o podanym adresie nie istnieje.</label>
       </div>
     );
   }
