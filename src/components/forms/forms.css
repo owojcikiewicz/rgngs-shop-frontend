@@ -13,7 +13,7 @@
  transform: translateX(-50%);
 }
 .main-form div{
- margin: 5% 25px 0 25px;
+ margin: 2% 25px 0 25px;
 }
 
 .forms-main-text{
@@ -68,6 +68,19 @@
 	font-size: 1.2em;
 }
 
+.input-error{
+	position:absolute;
+	display: none;
+	top: 0;
+	right: 0;
+	color: var(--red);
+	font-size: 1em;
+}
+
+.input-error.label{
+	display: inline;
+}
+
 .input-space{
 	position: absolute;
 	bottom: 0;
@@ -88,9 +101,16 @@
 	border-radius: 5px;
 }
 
+.input-space.error{
+	border: solid 2px var(--red);
+	border-radius: 5px;
+}
+
+
 
 /* PAYMENT */
 .paymentContainer{
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	
@@ -100,6 +120,20 @@
 	font-size: 1.2em;
 	margin-bottom: 15px;
 }
+
+.payment-error{
+	position:absolute;
+	display: none;
+	top: 0;
+	right: 0;
+	color: var(--red);
+	font-size: 1em;
+}
+
+.payment-error.label{
+	display: inline;
+}
+
 
 .paymentSelect{
 	background-color: var(--input);
@@ -123,6 +157,11 @@
 .paymentSelect:hover{
 	cursor: pointer;	
 	background-color: var(--header)
+}
+
+.paymentSelect.error{
+	border: solid 2px var(--red);
+	border-radius: 5px;
 }
 
 /* CHECKBOX */
