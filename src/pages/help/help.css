@@ -62,13 +62,26 @@
    top: 0;
    font-size: 1.2em;
  }
+
+ .help-error{
+  position:absolute;
+  display: none;
+  top: 0;
+  right:0 ;
+  color: var(--red);
+  font-size: 1em;
+ }
+
+ .help-error.label{
+   display: inline;
+ }
  
  .help-space{
    position: absolute;
    bottom: 0;
    height: 200px;
    width: 100%;
-   word-wrap: break-word;
+   resize: none;
    outline: none;
    border: none;
    color: white;
@@ -82,6 +95,11 @@
    border: solid 2px var(--accent);
    background-color: var(--input);
    border-radius: 5px;
+ }
+
+ .help-space.error{
+  border: solid 2px var(--red);
+  border-radius: 5px;
  }
  
  

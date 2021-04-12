@@ -11,11 +11,20 @@ class Form extends React.Component {
       email: "",
       acceptTerms: false,
       paymentMethod:"hotpay",
-      acceptPurchase: false
+      acceptPurchase: false,
+
+      errorName: false,
+      errorSurname: false,
+      errorAddress: false,
+      errorEmail: false,
+      errorAcceptTerms: false,
+      errorPayment: false,
+      errorAcceptPurchase: false
     };
     
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.validate = this.validate.bind(this);
   };
 
   handleChange(event) {
@@ -27,6 +36,51 @@ class Form extends React.Component {
     });
   }
 
+  validate() {
+    let errorName = false;
+    let errorSurname = false;
+    let errorAddress = false;
+    let errorEmail = false;
+    let errorAcceptTerms = false;
+    let errorPayment = false;
+    let errorAcceptPurchase = false;
+
+    if (!this.state.name) {
+      errorName =  true;
+    }
+
+    if (!this.state.surname) {
+      errorSurname =  true;
+    }
+
+    if (!this.state.address) {
+      errorAddress =  true;
+    }
+
+    if (!this.state.email) {
+      errorEmail =  true;
+    }
+
+    if (!this.state.acceptTerms) {
+      errorAcceptTerms =  true;
+    }
+
+    if (!this.state.acceptPurchase) {
+      errorPayment =  true;
+    }
+    
+    if (!this.state.paymentMethod) {
+      errorAcceptPurchase =  true;
+    }
+   
+    if ( errorName || errorSurname || errorAddress || errorEmail || errorAcceptTerms || errorPayment || errorAcceptPurchase) {
+      this.setState({ errorName, errorSurname, errorAddress, errorEmail, errorAcceptTerms, errorPayment, errorAcceptPurchase });
+      return false;
+    }
+
+    return true;
+  };
+
   validateName(name) {
     return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(name);
   };
@@ -34,6 +88,7 @@ class Form extends React.Component {
   validateEmail(email) {
     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
   };
+
 
   async handleSubmit(event) {
     let data = {
@@ -45,52 +100,10 @@ class Form extends React.Component {
       paymentMethod: this.state.paymentSelect, 
       acceptPurchase: this.state.acceptPurchase
     };
-
-    // check: user is valid. 
-    if (!this.props.user) {
-      console.log("Nie jesteś zalogowany!");
-      return;
-    };
-
-    // check: package id is valid. 
-    if (!this.props.id) {
-      console.log("Niepoprawny ID pakietu!");
-      return;
-    };
-
-    // check: first name validity. 
-    if (this.validateName(data.name) === false) {
-      console.log("Nieprawidłowe imię!");
-      return;
-    };
-
-    // check: surname validity. 
-    if (this.validateName(data.surname) === false) {
-      console.log("Nieprawidłowe nazwisko!");
-      return;
-    };
-
-    // check: e-mail validity. 
-    if (this.validateEmail(data.email) === false) {
-      console.log("Nieprawidłowy e-mail!");
-      return;
-    };
-
-    // check: terms accepted. 
-    if (data.terms !== true) {
-      console.log("Regulamin nie został zaakceptowany!");
-      return;
-    };
-
-    // check: payment intent. 
-    if (data.acceptPurchase !== true) {
-      console.log("Obowiązek zapłaty nie został wypełniony!");
-      return; 
-    };
-
-    console.log("USER: " + this.props.user.id);
-    console.log("ID: " + this.props.id);
-    
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+    }
     event.preventDefault();
 
     // @TODO: SUBMIT ORDER INTENT TO SERVER.
@@ -104,27 +117,32 @@ class Form extends React.Component {
        
         <div class="input-container">
           <label class="input-label">Imię</label>
-          <input class="input-space" name="name" type="text" placeholder="Wpisz swoje imie." value={this.state.nameInput} onChange={this.handleChange}/>
+          <label className={this.state.errorName ? "input-error label" : "input-error"}>Podaj swoje imię!</label>
+          <input className={this.state.errorName ? "input-space error" : "input-space"}  name="name" type="text" placeholder="Wpisz swoje imie." value={this.state.nameInput} onChange={this.handleChange}/>
         </div>
 
         <div class="input-container">
           <label class="input-label">Nazwisko</label>
-          <input class="input-space" name="surname" type="text" placeholder="Wpisz swoje nazwisko." value={this.state.surnameInput} onChange={this.handleChange} />
+          <label className={this.state.errorSurname ? "input-error label" : "input-error"}>Podaj swoje nazwisko!</label>
+          <input className={this.state.errorSurname ? "input-space error" : "input-space"} name="surname" type="text" placeholder="Wpisz swoje nazwisko." value={this.state.surnameInput} onChange={this.handleChange} />
         </div>
 
         <div class="input-container">
           <label class="input-label">Adres</label>
-          <input class="input-space" name="address" type="text" placeholder="Wpisz swój adres." value={this.state.addressInput} onChange={this.handleChange} />
+          <label className={this.state.errorAddress ? "input-error label" : "input-error"}>Podaj swój adres!</label>
+          <input className={this.state.errorAddress ? "input-space error" : "input-space"} name="address" type="text" placeholder="Wpisz swój adres." value={this.state.addressInput} onChange={this.handleChange} />
         </div>
 
         <div class="input-container">
           <label class="input-label">E-Mail</label>
-          <input class="input-space" name="email" type="text" placeholder="Wpisz swój adres e-mail." value={this.state.emailInput} onChange={this.handleChange} />
+          <label className={this.state.errorEmail ? "input-error label" : "input-error"}>Podaj swój email!</label>
+          <input className={this.state.errorEmail ? "input-space error" : "input-space"} name="email" type="text" placeholder="Wpisz swój adres e-mail." value={this.state.emailInput} onChange={this.handleChange} />
         </div>
 
-        <div class="paymentContainer">
+        <div class="paymentContainer"> 
           <label>Metody Płatności</label>
-          <select class="paymentSelect" name="paymentMethod" value={this.state.paymentSelect} onChange={this.handleChange}> 
+          <label className={this.state.errorPayment ? "payment-error label" : "payment-error"}>Wybierz formę płatności!</label>
+          <select className={this.state.errorPayment ? "paymentSelect error" : "paymentSelect"} name="paymentMethod" value={this.state.paymentSelect} onChange={this.handleChange}> 
             <option value="hotpay">HotPay</option>
             <option value="sms">SMS</option>
             <option value="psc">Paysafecard</option>
